@@ -2,8 +2,8 @@
 import yaml
 import connexion
 # from flask import app
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+# from sqlalchemy import create_engine
+# from sqlalchemy.orm import sessionmaker
 
 from connexion import NoContent
 
