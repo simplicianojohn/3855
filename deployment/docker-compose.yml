@@ -44,8 +44,8 @@ services:
     volumes:
       - my-db:/var/lib/mysql
 # Names our volume
-  audit:
-    image: audit
+  audit_log:
+    image: audit_log
     ports:
       - "9083:9083"
     depends_on:
