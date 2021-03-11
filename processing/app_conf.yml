@@ -4,6 +4,6 @@ datastore:
 scheduler:
  period_sec: 5
 eventstore1:
- url: http://localhost:8090/requests/get_order
+ url: http://lab6-3855.westus2.cloudapp.azure.com:8090/requests/get_order
 eventstore2:
- url: http://localhost:8090/requests/get_delivery
+ url: http://lab6-3855.westus2.cloudapp.azure.com:8090/requests/get_delivery
