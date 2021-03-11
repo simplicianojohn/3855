@@ -1,0 +1,15 @@
+version: 1
+eventstore1:
+ url: http://localhost:8090/requests/order
+eventstore2:
+ url: http://localhost:8090/requests/delivery
+datastore:
+ user: "root"
+ password: "Password"
+ hostname: "localhost"
+ port: 3306
+ db: "events"
+events:
+ hostname: lab6-3855.westus2.cloudapp.azure.com
+ port: 9092
+ topic: events

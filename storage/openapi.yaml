@@ -1,0 +1,160 @@
+openapi: 3.0.0
+info:
+  description: This API receives requests from a food service application 
+  version: "1.0.0"
+  title: Food Requests API
+  contact:
+    email: simplicianojohn@gmail.com
+tags:
+  - name: delivery
+    description: Secured Admin-only calls
+  - name: order
+    description: Adds an order to the system for customer pickup
+paths:
+#  /requests/delivery:
+#    post:
+#      tags:
+#        - delivery
+#      summary: reports a delivery request
+#      operationId: app.delivery_request
+#      description: adds a new delivery request to the system
+#      responses:
+#        '200':
+#          description: request accepted
+#        '400':
+#          description: invalid request
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              items:
+#                $ref: '#/components/schemas/FoodDeliveryRequest'
+#        description: reading request to add
+
+
+  /requests/get_delivery:
+    get:
+      tags:
+        - delivery
+      summary: reports a delivery request
+      operationId: app.get_delivery_request
+      description: adds a new delivery request to the system
+      parameters:
+        - name: timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: date-time
+            example: 2016-08-29T09:12:33.001Z
+      responses:
+        '200':
+          description: Successfully returned a list of delivery requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FoodDeliveryRequest'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+
+#  /requests/order:
+#    post:
+#      tags:
+#        - order
+#      summary: adds an order to the system
+#      operationId: app.add_order
+#      description: Adds an order to the system
+#      responses:
+#        '201':
+#          description: order created
+#        '400':
+#          description: 'invalid input, object invalid'
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/PreOrderRequest'
+#        description: pre order item to add
+
+  /requests/get_order:
+    get:
+      tags:
+        - order
+      summary: adds an order to the system
+      operationId: app.get_order_request
+      description: Adds an order to the system
+      parameters:
+        - name: timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: date-time
+            example: 2016-08-29T09:12:33.001Z
+      responses:
+        '200':
+          description: Successfully returned a list of order requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PreOrderRequest'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  schemas:
+    PreOrderRequest:
+      type: object
+      required:
+        - customer_id
+        - order_id
+        - date
+      properties:
+        customer_id:
+          type: integer
+          example: 0017
+        order_id:
+          type: string
+          example: B256
+        date:
+          type: string
+          format: date-time
+          example: '2016-08-29T09:12:33.001Z'
+    FoodDeliveryRequest:
+      type: object
+      required:
+        - driver_id
+        - customer_id
+        - customer_address
+        - order_id
+      properties:
+        driver_id:
+          type: string
+          example: 'Steve Stevenson'
+        customer_id:
+          type: integer
+          example: 0017
+        customer_address:
+          type: string
+          example: '1878 Beatrice Avenue'
+        order_id:
+          type: string
+          example: B256

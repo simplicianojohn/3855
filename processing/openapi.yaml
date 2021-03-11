@@ -1,0 +1,121 @@
+openapi: 3.0.0
+info:
+  description: This API receives requests from a food service application 
+  version: "1.0.0"
+  title: Food Requests API
+  contact:
+    email: simplicianojohn@gmail.com
+#tags:
+#  - name: delivery
+#    description: Secured Admin-only calls
+#  - name: order
+#    description: Adds an order to the system for customer pickup
+paths:
+  /stats:
+    get:
+#      tags:
+#        - delivery
+      summary: gets the delivery stats
+      operationId: app.get_stats
+      description: gets delivery statistics
+#      parameters:
+#        - name: timestamp
+#          in: query
+#          description: Limits the number of items on a page
+#          schema:
+#            type: string
+#            format: date-time
+#            example: 2016-08-29T09:12:33.001Z
+      responses:
+        '200':
+          description: Successfully returned a list of delivery events
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/ReadingStats'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+#    get:
+#      tags:
+#        - order
+#      summary: adds an order to the system
+#      operationId: app.get_order_request
+#      description: Adds an order to the system
+#      parameters:
+#        - name: timestamp
+#          in: query
+#          description: Limits the number of items on a page
+#          schema:
+#            type: string
+#            format: date-time
+#            example: 2016-08-29T09:12:33.001Z
+#      responses:
+#        '200':
+#          description: Successfully returned a list of order requests
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/PreOrderRequest'
+#        '400':
+#          description: Invalid request
+#          content:
+#            application/json:
+#              schema:
+#                type: object
+#                properties:
+#                  message:
+#                    type: string
+components:
+  schemas:
+#    PreOrderRequest:
+#      type: object
+#      required:
+#        - customer_id
+#        - order_id
+#        - date
+#      properties:
+#        customer_id:
+#          type: integer
+#          example: 0017
+#        order_id:
+#          type: string
+#          example: B256
+#        date:
+#          type: string
+#          format: date-time
+#          example: '2016-08-29T09:12:33.001Z'
+    ReadingStats:
+      type: object
+      required:
+#        - driver_id
+#        - customer_id
+#        - customer_address
+#        - order_id
+        - num_of_customer_ids
+        - num_of_order_ids
+        - num_of_driver_ids
+        - num_of_customer_addresses
+      properties:
+        num_of_customer_ids:
+          type: integer
+          example: 100
+        num_of_order_ids:
+          type: integer
+          example: 150
+        num_of_driver_ids:
+          type: integer
+          example: 20
+        num_of_customer_addresses:
+          type: integer
+          example: 30
