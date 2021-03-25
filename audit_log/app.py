@@ -6,6 +6,7 @@ import connexion
 # from sqlalchemy.orm import sessionmaker
 
 from connexion import NoContent
+from flask_cors import CORS, cross_origin
 
 import requests
 import logging
@@ -107,6 +108,8 @@ def get_order_request(index):
 
 
 app = connexion.FlaskApp(__name__, specification_dir='')
+CORS(app.app)
+app.app.config['CORS_HEADERS'] = 'Content-Type'
 app.add_api("openapi.yml",
             strict_validation=True,
             validate_responses=True)
