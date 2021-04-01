@@ -13,7 +13,6 @@ handlers:
     level: DEBUG
     formatter: simple
     filename: /logs/app_processing.log
-
 loggers:
   basicLogger:
     level: DEBUG
