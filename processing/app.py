@@ -117,21 +117,22 @@ def populate_stats():
     #     num_of_customer_addresses += 1
     #     num_of_driver_ids += 1
 
-    if os.path.isfile(app_config['datastore']['filename']):
-        with open(app_config['datastore']['filename'], 'r') as f:
-        #     # log_config = yaml.safe_load(f.read())
-            data_json = json.load(f)
-            num_of_customer_ids = data_json['num_of_customer_ids']
-            num_of_order_ids = data_json['num_of_order_ids']
-            num_of_driver_ids = data_json['num_of_driver_ids']
-            num_of_customer_addresses = data_json['num_of_customer_addresses']
-            last_updated = data_json["last_updated"]
-    else:
-        num_of_customer_ids = 0
-        num_of_order_ids = 0
-        num_of_driver_ids = 0
-        num_of_customer_addresses = 0
-        last_updated = time
+    # if os.path.isfile(app_config['datastore']['filename']):
+    #     with open(app_config['datastore']['filename'], 'r') as f:
+    #     #     # log_config = yaml.safe_load(f.read())
+    #         data_json = json.load(f)
+    #         num_of_customer_ids = data_json['num_of_customer_ids']
+    #         num_of_order_ids = data_json['num_of_order_ids']
+    #         num_of_driver_ids = data_json['num_of_driver_ids']
+    #         num_of_customer_addresses = data_json['num_of_customer_addresses']
+    #         last_updated = data_json["last_updated"]
+    # else:
+
+    num_of_customer_ids = 0
+    num_of_order_ids = 0
+    num_of_driver_ids = 0
+    num_of_customer_addresses = 0
+    last_updated = time
         # json.dump(new_file, fi)
 
     for i in status_code1_json:
