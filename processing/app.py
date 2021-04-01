@@ -144,6 +144,12 @@ def populate_stats():
         num_of_customer_addresses += 1
         num_of_driver_ids += 1
 
+
+    num_of_customer_ids += 1
+    num_of_order_ids += 1
+    num_of_customer_addresses += 1
+    num_of_driver_ids += 1
+
     with open(app_config['datastore']['filename'], "w") as f:
         new_file = {}
         new_file['num_of_customer_ids'] = num_of_customer_ids
