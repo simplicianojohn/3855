@@ -117,7 +117,7 @@ def populate_stats():
     #     num_of_customer_addresses += 1
     #     num_of_driver_ids += 1
 
-    with open('data.json', 'r') as f:
+    with open(app_config['datastore']['filename'], 'r') as f:
     #     # log_config = yaml.safe_load(f.read())
         data_json = json.load(f)
         num_of_customer_ids = data_json['num_of_customer_ids']
@@ -136,7 +136,7 @@ def populate_stats():
         num_of_customer_addresses += 1
         num_of_driver_ids += 1
 
-    with open("data.json", "w") as f:
+    with open(app_config['datastore']['filename'], "w") as f:
         new_file = {}
         new_file['num_of_customer_ids'] = num_of_customer_ids
         new_file['num_of_order_ids'] = num_of_order_ids
@@ -156,11 +156,11 @@ def populate_stats():
 
 def get_stats():
     logger.info("request has started ")
-    if not path.exists('data.json'):
+    if not path.exists(app_config['datastore']['filename']):
         logger.error("no file")
         return "Statistics do not exist", 404
     else:
-        with open('data.json', 'r') as f:
+        with open(app_config['datastore']['filename'], 'r') as f:
             data_json = json.load(f)
             logger.debug(data_json)
 
