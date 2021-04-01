@@ -159,12 +159,12 @@ def get_stats():
     if not path.exists(app_config['datastore']['filename']):
         logger.error("no file")
 
-        process_dict = {}
-        process_dict[num_of_customer_ids] = 0 
-        process_dict[num_of_order_ids] = 0
-        process_dict[num_of_driver_ids] = 0
-        process_dict[num_of_customer_addresses] = 0
-        process_dict[last_updated] = time
+        data_json = {}
+        data_json[num_of_customer_ids] = 0 
+        data_json[num_of_order_ids] = 0
+        data_json[num_of_driver_ids] = 0
+        data_json[num_of_customer_addresses] = 0
+        data_json[last_updated] = time
 
         return "Statistics do not exist", 404
     else:
