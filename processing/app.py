@@ -160,11 +160,11 @@ def get_stats():
         logger.error("no file")
 
         data_json = {}
-        data_json[num_of_customer_ids] = 0 
-        data_json[num_of_order_ids] = 0
-        data_json[num_of_driver_ids] = 0
-        data_json[num_of_customer_addresses] = 0
-        data_json[last_updated] = time
+        data_json['num_of_customer_ids'] = 0 
+        data_json['num_of_order_ids'] = 0
+        data_json['num_of_driver_ids'] = 0
+        data_json['num_of_customer_addresses'] = 0
+        data_json['last_updated'] = time
 
         return "Statistics do not exist", 404
     else:
